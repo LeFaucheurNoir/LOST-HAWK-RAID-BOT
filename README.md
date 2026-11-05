@@ -1,187 +1,121 @@
 # ŁØST • HΛWK
 
-### Assistant Discord — Diablo Immortal 
+Bot Discord de gestion des raids, des inscriptions et des événements pour Diablo Immortal.
 
-**Version actuelle : 2.5.19**
+## Ajouter le bot à son serveur
 
-ŁØST • HΛWK est un bot Discord privé conçu pour faciliter l'organisation des activités d'un clan Diablo Immortal. Il centralise la gestion des raids, les inscriptions des joueurs, la composition des équipes et les rappels des événements importants.
+Aucune installation de logiciel n'est nécessaire. Il suffit d'ajouter le bot à son serveur Discord.
+
+### [➕ Ajouter ŁØST • HΛWK à mon serveur Discord](https://discord.com/oauth2/authorize?client_id=1558792802782019694&permissions=8&integration_type=0&scope=bot)
+
+1. Ouvrez le lien d'invitation. [CLIQUEZ ICI ➕](https://discord.com/oauth2/authorize?client_id=1558792802782019694&permissions=8&integration_type=0&scope=bot)
+2. Connectez-vous à votre compte Discord si nécessaire.
+3. Sélectionnez le serveur sur lequel vous souhaitez ajouter le bot.
+4. Validez les autorisations demandées.
+5. Le bot rejoint votre serveur et devient disponible pour ses membres.
+
+*Il faut disposer de la permission « Gérer le serveur » ou être propriétaire du serveur pour pouvoir ajouter le bot.*
+
+## Première configuration
+
+Une fois le bot ajouté, un administrateur doit configurer les différents salons.
+
+### 1. Utiliser `/config`
+
+Dans un salon Discord, saisissez `/config` et sélectionnez la commande ŁØST • HΛWK.
+
+Vous pouvez renseigner les paramètres suivants :
+
+| Paramètre | Utilité |
+|---|---|
+| `annonces` | Salon des rappels quotidiens pour l'Assemblée et la Chambre forte |
+| `gdo` | Salon des rappels de la Guerre des ombres |
+| `logs` | Salon qui reçoit les notifications d'inscriptions et de désinscriptions |
+| `role_ping` | Rôle mentionné lors des raids et des rappels |
+| `assemblee` | Active ou désactive les rappels quotidiens |
+| `guerre_ombres` | Active ou désactive les rappels de la Guerre des ombres |
+
+Vous pouvez renseigner plusieurs paramètres en une seule utilisation de `/config`.
+
+Les paramètres non renseignés conservent leur valeur actuelle.
+
+### 2. Vérifier la configuration
+
+Relancez `/config` sans renseigner de paramètre pour afficher la configuration actuelle du serveur.
+
+La réponse est privée : seul l'administrateur qui utilise la commande peut la voir.
+
+## Utiliser le bot
+
+Les commandes sont accessibles directement dans Discord.
+
+Tapez `/` dans la barre de discussion pour afficher les commandes disponibles, puis sélectionnez ŁØST • HΛWK.
+
+### Gestion des raids
+
+| Commande | Description |
+|---|---|
+| `/raid_create` | Créer un raid |
+| `/raid_list` | Afficher les raids disponibles |
+| `/raid_close` | Fermer les inscriptions d'un raid |
+| `/raid_delete` | Supprimer un raid |
+| `/raid_export` | Exporter les informations d'un raid |
+| `/raid_repetition` | Gérer les événements répétitifs |
+| `/gestion_raids` | Accéder aux outils de gestion des raids |
+
+Les joueurs peuvent utiliser les messages et les interfaces du bot pour s'inscrire aux raids et gérer leur participation.
+
+### Placements
+
+La commande `/placements` permet d'accéder au système de placements des équipes.
+
+Les placements permettent notamment de répartir les joueurs entre les différentes équipes en fonction des places disponibles.
+
+## Rappels automatiques
+
+Une fois les salons configurés, le bot peut envoyer automatiquement les rappels prévus.
+
+### Assemblée et Chambre forte
+
+Les rappels quotidiens sont programmés à :
+
+- 12 h 00
+- 19 h 00
+
+Ils sont prévus du lundi au samedi.
+
+### Guerre des ombres
+
+Les rappels sont programmés les jours de Guerre des ombres :
+
+- 18 h 30 : rappel 1 heure avant
+- 19 h 15 : rappel 15 minutes avant
+- 19 h 25 : rappel 5 minutes avant
+- 19 h 30 : début de la guerre
+
+Les rappels sont envoyés dans le salon défini avec le paramètre `gdo`.
+
+## Classes disponibles
+
+Le bot prend en charge les classes suivantes :
+
+- 🪓 Barbare
+- 🩸 Chevalier de sang
+- 🛡️ Croisé
+- 🏹 Chasseur de démons
+- 🌿 Druide
+- 👊 Moine
+- 💀 Nécromancien
+- 🌪️ Tempête
+- 🔮 Sorcier
+- 😈 Démoniste
+
+## Besoin d'aide ?
+
+Si une commande ne s'affiche pas, vérifiez que le bot est bien présent sur le serveur et que les membres disposent de la permission d'utiliser les commandes d'applications.
+
+Si une fonctionnalité ne fonctionne pas, contactez l'équipe responsable du bot.
 
 ---
 
-## ⚔️ Gestion des raids et événements
-
-Le bot dispose d'un système complet de création et de gestion des événements.
-
-- Création de raids avec titre, adversaire, date, heure et description.
-- Publication automatique des événements sur Discord.
-- Inscriptions organisées par classe.
-- Prise en charge des personnages avec leur propre pseudo.
-- Possibilité d'inscrire plusieurs personnages sur un même événement.
-- Limitation du nombre de places par classe.
-- Gestion automatique des listes d'attente lorsque les places sont complètes.
-- Fermeture et réouverture des inscriptions.
-- Modification et suppression des événements.
-- Consultation de la liste des raids et de leurs participants.
-- Exportation des participants classés par classe.
-
-### Classes prises en charge
-
-| Classe | Classe | 
-|---|---|
-| 🪓 Barbare | 🩸 Chevalier de sang |
-| 🛡️ Croisé | 🏹 Chasseur de démons |
-| 🌿 Druide | 👊 Moine |
-| 💀 Nécromancien | 🌪️ Tempête |
-| 🔮 Sorcier | 😈 Démoniste |
-
-### Gestion des présences
-
-Chaque événement permet aux joueurs de choisir leur statut :
-
-- **Inscrit :** sélection d'une classe et d'un personnage.
-- **Pas sûr :** présence incertaine.
-- **Absent :** indisponibilité annoncée.
-- **Désinscription :** retrait de ses inscriptions.
-- **Suppression individuelle :** possibilité de retirer un personnage sans désinscrire les autres.
-
-Les inscriptions sont actualisées directement sur le message Discord de l'événement.
-
-## 🔁 Événements récurrents
-
-Les raids peuvent être configurés pour se répéter automatiquement :
-
-- Aucune répétition.
-- Quotidienne.
-- Hebdomadaire.
-- Mensuelle.
-
-La publication du prochain événement peut être programmée entre 0 et 30 jours avant sa date prévue.
-
-Les événements d'une même série conservent leur configuration de répétition.
-
-## 🛡️ Guerre des ombres
-
-Le bot intègre un système de rappels automatiques pour les Guerres des ombres.
-
-Les notifications sont programmées le jeudi et le samedi :
-
-| Horaire | Notification |
-|---|---|
-| 18h30 | Début du rappel — 1 heure avant |
-| 19h15 | Rappel — 15 minutes avant |
-| 19h25 | Rappel — 5 minutes avant |
-| 19h30 | Début de la Guerre des ombres |
-
-Les notifications peuvent mentionner automatiquement le rôle dédié.
-
-### Gestion des placements
-
-La commande `/placements` permet de publier directement sur Discord une composition d'équipes provenant du site de gestion des placements.
-
-Fonctionnalités :
-- Importation d'un code de placement au format `HTO1`.
-- Décodage des données compressées.
-- Organisation par catégories et par équipes.
-- Affichage des joueurs et de leurs emojis.
-- Affichage du nombre total de joueurs placés.
-- Publication sous forme d'embed Discord.
-
-## 🏛️ Assemblée et Chambre forte
-
-Le bot automatise également les rappels quotidiens liés à l'Assemblée et à la Chambre forte.
-
-- Notification à **12h00**.
-- Notification à **19h00**.
-- Envoi d'une image d'annonce.
-- Mention automatique du rôle concerné.
-- Désactivation des rappels le dimanche.
-
-## 🌐 Intégration avec le site
-
-ŁØST • HΛWK communique avec le site associé au projet.
-
-L'intégration permet notamment :
-- L'exportation des personnages inscrits à un raid.
-- La génération d'un code de transfert au format `HTR1`.
-- L'ouverture du site avec les données du raid préremplies.
-- La récupération des placements de Guerre des ombres depuis un code `HTO1`.
-- Une liaison avec le système `panel_bridge`.
-
-Site associé : http://lostxhawk.ooguy.com/
-
-## 🧰 Administration et interface Discord
-
-Le bot utilise les fonctionnalités natives de Discord pour proposer une interface interactive.
-
-- Commandes slash.
-- Menus déroulants.
-- Boutons interactifs.
-- Formulaires de saisie.
-- Embeds personnalisés.
-- Messages privés éphémères pour certaines opérations.
-- Contrôle des permissions administratives.
-- Synchronisation des commandes Discord.
-- Journalisation de certaines actions.
-- Notification lors du démarrage du bot avec sa version actuelle.
-
-La gestion des raids dispose notamment d'un panneau interactif permettant de sélectionner un événement et d'effectuer les opérations disponibles.
-
-### Commandes disponibles
-
-| Commande | Fonction |
-|---|---|
-| `/sync` | Synchronisation des commandes Discord |
-| `/raid_create` | Création d'un raid |
-| `/raid_list` | Liste des événements enregistrés |
-| `/raid_close` | Fermeture ou réouverture des inscriptions |
-| `/raid_delete` | Suppression d'un événement |
-| `/raid_export` | Exportation des participants par classe |
-| `/raid_repetition` | Configuration des répétitions |
-| `/gestion_raids` | Ouverture du panneau de gestion |
-| `/placements` | Publication des placements de Guerre des ombres |
-
-## 💾 Données et persistance
-
-Les événements sont enregistrés dans un fichier JSON local.
-
-Le système conserve notamment :
-- Les informations des événements.
-- Les dates et horaires.
-- Les créateurs.
-- Les inscriptions et les personnages.
-- Les listes d'attente.
-- Les limites par classe.
-- Les paramètres de répétition.
-- Les identifiants des messages Discord associés.
-
-Les événements peuvent ainsi être rechargés après un redémarrage du bot. Les interfaces d'inscription existantes sont également réenregistrées.
-
-## 🖥️ Environnement technique
-
-| Composant | Version / technologie |
-|---|---|
-| Langage | Python 3.12+ |
-| Bibliothèque Discord | discord.py 2.7+ |
-| API Discord | Discord Application Commands |
-| Données | JSON |
-| Fuseau horaire | Europe/Paris |
-| Intégration externe | GitHub REST API |
-| Compression et encodage | Base64, zlib |
-| Planification | discord.ext.tasks |
-| Interface externe | panel_bridge |
-
-Le projet utilise également des modules internes, notamment `panel_bridge` et `decode_placements`.
-
----
-
-## 📋 Historique des versions
-
-### Version 2.5.19
-
-- Ajout d'un ping sur le message de sélection de présence.
-- Ajout d'un ping à 12h et 19h pour l'Assemblée et la Chambre forte quotidienne, sauf le dimanche.
-- Ajout de rappels à 18h30, 19h15, 19h25 et 19h30 pour la Guerre des ombres, le jeudi et le samedi.
-
----
-
-<sub>ŁØST • HΛWK — Outil privé de gestion et d'organisation communautaire pour Diablo Immortal.</sub>
+*ŁØST • HΛWK — La gestion de vos raids Diablo Immortal directement sur Discord.*
