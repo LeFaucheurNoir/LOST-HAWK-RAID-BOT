@@ -421,34 +421,6 @@ Cela permet aux responsables du serveur de suivre l'activité des inscriptions.
 
 ---
 
-# <escape>🌐</escape> Administration globale
-
-ŁØST • HΛWK RAID HELPER est conçu pour fonctionner sur plusieurs serveurs Discord simultanément.
-
-Chaque serveur possède ses propres paramètres et ses propres événements.
-
-Les données d'un serveur ne sont pas mélangées avec celles d'un autre.
-
-### Panneau global
-
-Ce panneau permet notamment de :
-
-- Afficher les serveurs sur lesquels le bot est présent.
-- Rechercher un serveur par son nom ou son identifiant.
-- Consulter le nombre de membres.
-- Consulter le nombre de raids.
-- Vérifier la configuration des salons.
-- Modifier les salons et le rôle de notification.
-- Activer ou désactiver les rappels quotidiens.
-- Activer ou désactiver les rappels de Guerre des Ombres.
-- Consulter les raids d'un serveur.
-- Créer, modifier et supprimer des événements à distance.
-- Fermer ou rouvrir les inscriptions.
-- Modifier les répétitions.
-
-L'interface dispose d'une recherche et d'une pagination pour faciliter la gestion d'un grand nombre de serveurs.
-
----
 
 # <escape>💾</escape> Sauvegarde et conservation des données
 
